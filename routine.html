@@ -1,0 +1,156 @@
+
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ルーティン</title>
+  <style>
+    :root {
+      --bg: #1D1E21;
+      --card: #2B2C31;
+      --accent: #5DA8FF;
+      --text: #E8E8E8;
+      --muted: #AAAAAA;
+      --border: #3A3B3F;
+      font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+      max-width: 400px;
+    }
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    table.schedule {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table.schedule td {
+      padding: 10px 4px;
+      text-align: left;
+      vertical-align: middle;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+      color: var(--text);
+    }
+    table.schedule td.activity {
+      text-align: center;
+    }
+    table.schedule td.time {
+      text-align: right;
+      padding-right: 10px;
+    }
+    table.schedule tr:hover td {
+      background: rgba(93, 168, 255, 0.08);
+      transition: background 0.2s ease;
+    }
+    table.schedule td.checkbox {
+      width: 60px;
+      text-align: center;
+    }
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <table class="schedule" role="table">
+      <tbody>
+        <tr>
+          <td class="time">8:00</td>
+          <td class="activity">起床・朝もろもろ</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">9:00</td>
+          <td class="activity">水飲・体重・瞑想・仕事</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">11:00</td>
+          <td class="activity">軽食・プロテイン</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">12:00</td>
+          <td class="activity">腕立て10×3セット<br>スクワット15×3<br>プランク30秒×2</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">12:30</td>
+          <td class="activity">風呂・休憩</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">13:00</td>
+          <td class="activity">自由時間 or 仕事</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">18:00</td>
+          <td class="activity">夕食・寝る準備</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">20:30</td>
+          <td class="activity">寝かしつけ</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">22:00</td>
+          <td class="activity">自由時間 or 仕事</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">1:30</td>
+          <td class="activity">風呂</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td class="time">2:00</td>
+          <td class="activity">就寝</td>
+          <td class="checkbox"><input type="checkbox"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    document.querySelectorAll("table.schedule tbody tr").forEach(row => {
+      row.addEventListener("click", e => {
+        if (e.target.tagName.toLowerCase() === "input") return;
+
+        const checkbox = row.querySelector("input[type='checkbox']");
+        if (checkbox) {
+          checkbox.checked = !checkbox.checked;
+          row.classList.toggle("checked", checkbox.checked);
+        }
+      });
+    });
+
+    document.querySelectorAll("table.schedule input[type='checkbox']").forEach(chk => {
+      chk.addEventListener("change", () => {
+        chk.closest("tr").classList.toggle("checked", chk.checked);
+      });
+    });
+  </script>
+</body>
+</html>
