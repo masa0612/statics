@@ -17,8 +17,6 @@
 <button id="restartBtn">最初から再生</button>
 <button id="pauseBtn">一時停止</button>
 <button id="playBtn">再生</button>
-
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
 let player;
 
@@ -43,6 +41,7 @@ document.getElementById('playBtn').addEventListener('click', () => {
     if (player && typeof player.playVideo === 'function') player.playVideo();
 });
 </script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
 </html>
