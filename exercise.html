@@ -8,7 +8,6 @@
 <iframe id="myVideo" width="394" height="222" src="https://www.youtube-nocookie.com/embed/hge3fr50o0o?enablejsapi=1&start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <button id="restartBtn">Reset</button>
 </body>
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
 let player;
 function onYouTubeIframeAPIReady() {
@@ -18,9 +17,10 @@ function onYouTubeIframeAPIReady() {
 // ボタン操作
 document.getElementById('restartBtn').addEventListener('click', () => {
     if (player && typeof player.seekTo === 'function') {
-        player.seekTo(0, true);  // 0秒に移動
+        player.seekTo(10, true);  // 0秒に移動
         player.playVideo();      // 再生
     }
 });
 </script>
+<script src="https://www.youtube.com/iframe_api"></script>
 </html>
