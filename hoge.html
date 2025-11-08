@@ -15,8 +15,6 @@
 </iframe>
 
 <button id="restartBtn">最初から再生</button>
-<button id="pauseBtn">一時停止</button>
-<button id="playBtn">再生</button>
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
@@ -33,14 +31,6 @@ document.getElementById('restartBtn').addEventListener('click', () => {
         player.seekTo(0, true);  // 0秒に移動
         player.playVideo();      // 再生
     }
-});
-
-document.getElementById('pauseBtn').addEventListener('click', () => {
-    if (player && typeof player.pauseVideo === 'function') player.pauseVideo();
-});
-
-document.getElementById('playBtn').addEventListener('click', () => {
-    if (player && typeof player.playVideo === 'function') player.playVideo();
 });
 </script>
 
