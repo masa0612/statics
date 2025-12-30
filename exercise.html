@@ -5,7 +5,7 @@
 <title>とにかくやれ</title>
 </head>
 <body style="margin:0; background-color:#1D1E21;">
-<iframe id="myVideo" width="394" height="222" src="https://www.youtube-nocookie.com/embed/hge3fr50o0o?enablejsapi=1&start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe id="myVideo" width="394" height="222" src="https://www.youtube-nocookie.com/embed/hge3fr50o0o?enablejsapi=1&start=12" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <button id="restartBtn">Reset</button>
 </body>
 <script>
@@ -17,8 +17,8 @@ function onYouTubeIframeAPIReady() {
 // ボタン操作
 document.getElementById('restartBtn').addEventListener('click', () => {
     if (player && typeof player.seekTo === 'function') {
-        player.seekTo(10, true);  // 0秒に移動
-        player.playVideo();      // 再生
+        player.seekTo(12, true);
+        player.playVideo();
     }
 });
 </script>
